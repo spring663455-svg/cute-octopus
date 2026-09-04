@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fffaf1" />
+    <title>小章魚算算樂</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="小章魚算算樂首頁">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>小章魚算算樂</span>
+      </a>
+      <button class="icon-button" id="soundButton" type="button" aria-label="關閉音效" aria-pressed="true">♪</button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="eyebrow">DAILY MATH PRACTICE</div>
+        <h1>今天也來動動腦！</h1>
+        <p>挑戰加減法，看看你能連續答對幾題。</p>
+      </section>
+
+      <section class="stats" aria-label="練習統計">
+        <div class="stat-card"><span class="stat-icon coral">✓</span><div><strong id="correctCount">0</strong><small>答對題數</small></div></div>
+        <div class="stat-card"><span class="stat-icon yellow">⚡</span><div><strong id="streakCount">0</strong><small>連勝紀錄</small></div></div>
+        <div class="stat-card"><span class="stat-icon blue">◎</span><div><strong id="accuracyCount">—</strong><small>正確率</small></div></div>
+      </section>
+
+      <div class="workspace">
+        <aside class="settings-card">
+          <div class="section-heading"><span>練習設定</span><button id="resetButton" type="button">重新開始</button></div>
+          <fieldset>
+            <legend>題目類型</legend>
+            <div class="segmented" id="operationChoice">
+              <button type="button" data-operation="add" class="active">加法</button>
+              <button type="button" data-operation="subtract">減法</button>
+              <button type="button" data-operation="mixed">混合</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>數字範圍</legend>
+            <div class="range-options" id="rangeChoice">
+              <button type="button" data-range="10" class="active"><strong>10</strong><span>以內</span></button>
+              <button type="button" data-range="20"><strong>20</strong><span>以內</span></button>
+              <button type="button" data-range="100"><strong>100</strong><span>以內</span></button>
+            </div>
+          </fieldset>
+          <div class="tip"><span aria-hidden="true">💡</span><p><strong>小提醒</strong><br />慢慢想、仔細算，答錯也沒關係！</p></div>
+        </aside>
+
+        <section class="practice-card" aria-labelledby="questionTitle">
+          <div class="progress-row">
+            <span>本次練習</span><span><strong id="questionNumber">1</strong> / 10</span>
+          </div>
+          <div class="progress-track"><div id="progressBar"></div></div>
+          <div class="question-wrap">
+            <span class="question-label" id="questionTitle">請算出答案</span>
+            <div class="equation" aria-live="polite">
+              <span id="leftNumber">3</span><span id="operator" class="operator">＋</span><span id="rightNumber">5</span><span class="equals">＝</span><span id="answerDisplay" class="answer-box">?</span>
+            </div>
+            <p id="feedback" class="feedback" aria-live="assertive">把答案填進格子裡吧</p>
+          </div>
+          <div class="answer-area">
+            <label for="answerInput">你的答案</label>
+            <div class="answer-controls">
+              <input id="answerInput" type="number" inputmode="numeric" autocomplete="off" placeholder="輸入數字" />
+              <button id="submitButton" class="primary-button" type="button">確認答案 <span>→</span></button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <div class="celebration" id="celebration" aria-hidden="true"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
